@@ -1,0 +1,20 @@
+# vscode
+.vscode/
+
+# lisp
+.lsp/
+
+# secret project
+.clj-kondo/
+
+# docs stuff
+*.aux
+*.log
+*.gz
+*.blg
+*.out
+*.toc
+*.txt
+*.fdb*
+*.fls
+
