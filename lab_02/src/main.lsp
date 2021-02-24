@@ -38,5 +38,20 @@
     (list (list ar1) (list ar2)))
 
 (defun f3 (ar1)
-    (list (list (list ar1))))
+  (list (list (list ar1))))
+
+(defun f1-cons (ar1 ar2 ar3 ar4)
+  (cons
+   (cons ar1 (cons ar2 ()))
+   (cons (cons ar3 (cons ar4 ())) ())))
+
+(defun f2-cons (ar1 ar2)
+  (cons
+   (cons ar1 ())
+   (cons (cons ar2 ()) ())))
+
+(defun f3-cons (ar1)
+  (cons
+   (cons ar1 ())
+   ()))
 
