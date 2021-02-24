@@ -1,0 +1,329 @@
+\chapter*{Лабораторная работа №1}
+
+\section*{Задание 1}
+
+Составить диаграмму вычисления следующих выражений:
+
+\begin{lstinputlisting}[
+	caption={Задание 1},
+	label={lst:t1},
+	style={lsp},
+	linerange={3-8},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\begin{lstlisting}[style={scheme}]
+1. (equal 3 (abs -3))
+     3 вычисляется как 3
+     (abs -3)
+       -3 вычисляется как -3
+       abs применяется к -3
+       3
+     equal применяется к 3 и 3
+     T
+\end{lstlisting}
+
+\begin{lstlisting}[style={scheme}]
+2. (equal (+ 1 2) 3)
+     (+ 1 2)
+       1 вычисляется как 1
+       2 вычисляется как 2
+       + применяется к 1 и 2
+       3
+     3 вычисляется как 3
+     equal применяется к 3 и 3
+     T
+\end{lstlisting}
+
+\begin{lstlisting}[style={scheme}]
+3. (equal (* 4 7) 21)
+     (* 4 7)
+       4 вычисляется как 4
+       7 вычисляется как 7
+       * применяется к 4 и 7
+       28
+     21 вычисляется как 21
+     equal применяется к 28 и 21
+     Nil
+\end{lstlisting}
+
+\begin{lstlisting}[style={scheme}]
+4. (equal (* 2 3) (+ 7 2))
+     (* 2 3)
+       2 вычисляется как 2
+       3 вычисляется как 3
+       * применяется к 2 и 3
+       6
+     (+ 7 2)
+       7 вычисляется как 7
+       2 вычисляется как 2
+       + применяется к 7 и 2
+       9
+     equal применяется к 6 и 9
+     Nil
+\end{lstlisting}
+
+\begin{lstlisting}[style={scheme}]
+5. (equal (- 7 3) (* 3 2))
+     (- 7 3)
+       7 вычисляется как 7
+       3 вычисляется как 3
+       - применяется к 7 и 3
+       4
+     (* 3 2)
+       3 вычисляется как 3
+       2 вычисляется как 2
+       * применяется к 3 и 2
+       6
+     equal применяется к 4 и 6
+     Nil
+\end{lstlisting}
+
+\begin{lstlisting}[style={scheme}]
+6. (equal (abs (- 2 4)) 3)
+     (abs (- 2 4))
+       (- 2 4)
+         2 вычисляется как 2
+         4 вычисляется как 4
+         - применяется к 2 и 4
+         -2
+       abs применяется к -2
+       2
+     3 вычисляется как 3
+     equal применяется к 2 и 3
+     Nil
+\end{lstlisting}
+
+\section*{Задание 2}
+
+Написать функцию, вычисляющую гипотенузу прямоугольного треугольника по заданным катетам и составить диаграмму её вычисления.
+
+\begin{lstinputlisting}[
+	caption={Задание 2},
+	label={lst:t2},
+	style={lsp},
+	linerange={11-16},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\begin{lstlisting}[style={scheme}]
+(a-square (* a a))
+  (* a a)
+    a вычисляется как a
+    a вычисляется как a
+    * применяется к a и a
+    $a^2$
+  привязка $a^2$ к a-square
+(b-square (* b b))
+  (* b b)
+    b вычисляется как b
+    b вычисляется как b
+    * применяется к b и b
+    $b^2$
+  привязка $b^2$ к b-square
+(square-sum (+ a-square b-square)))
+  (+ a-square b-square)
+    + применяется к a-square и b-square
+    $a^2 + b^2$
+  привязка $a^2 + b^2$ к square-sum
+(sqrt square-sum)
+  sqrt применяется к square-sum
+  $\sqrt{a^2+b^2}$
+\end{lstlisting}
+
+\section*{Задание 3}
+
+Написать функцию, вычисляющую объём параллелепипеда по 3-м его сторонам и составить диаграмму её вычисления.
+
+\begin{lstinputlisting}[
+	caption={Задание 3},
+	label={lst:t3},
+	style={lsp},
+	linerange={18-20},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\begin{lstlisting}[style={scheme}]
+(* a b h)
+  a вычисляется как a
+  b вычисляется как b
+  h вычисляется как h
+  * приминяется к a, b, h
+  $a\cdot b\cdot h$
+\end{lstlisting}
+
+\section*{Задание 4}
+
+Каковы результаты вычисления следующих выражений?
+
+\begin{lstinputlisting}[
+	caption={Задание 4},
+	label={lst:t4},
+	style={lsp},
+	linerange={24-31},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{Задание 5}
+
+Написать функцию {\texttt{longer-than}} от двух списков-аргументов, которая возвращает {\texttt{T}}, если первый аргумент имеет большую длину.
+
+\begin{lstinputlisting}[
+	caption={Задание 5},
+	label={lst:t5},
+	style={lsp},
+	linerange={34-38},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{Задание 6}
+
+Каковы результаты вычисления следующих выражений?
+
+\begin{lstinputlisting}[
+	caption={Задание 6},
+	label={lst:t6},
+	style={lsp},
+	linerange={42-48},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{Задание 7}
+
+Дана функция 
+
+\begin{lstinputlisting}[
+	caption={mystery},
+	label={lst:func},
+	style={lsp},
+	linerange={50-51},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+Каковы результаты вычисления следующих выражений?
+
+\begin{lstinputlisting}[
+	caption={Задание 7},
+	label={lst:t7},
+	style={lsp},
+	linerange={53-56},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{Задание 8}
+
+Написать функцию, которая переводит температуру в системе Фаренгейта в температуру по Цельсию. $f = \cfrac{9}{5}\cdot c + 32$
+
+\begin{lstinputlisting}[
+	caption={Задание 8},
+	label={lst:t8},
+	style={lsp},
+	linerange={59-61},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\noindentКак бы назывался роман Р. Бредбери <<+451 по Фаренгейту>> в системе по Цельсию?\\
+-- <<232.78 по Цельсию>>
+
+\section*{Задание 9}
+
+Что получится при вычислении каждого из выражений?
+
+\begin{lstinputlisting}[
+	caption={Задание 9},
+	label={lst:t9},
+	style={lsp},
+	linerange={65-71},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{Дополнительное задание 1}
+
+Написать функцию, вычисляющую катет по заданной гипотенузе и другому катету прямоугольного треугольника и составить диаграмму её вычисления. 
+
+\begin{lstinputlisting}[
+	caption={Дополнительное задание 1},
+	label={lst:e1},
+	style={lsp},
+	linerange={74-79},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\begin{lstlisting}[style={scheme}]
+(hyp-square (* hyp hyp))
+  (* hyp hyp)
+    hyp вычисляется как hyp
+    hyp вычисляется как hyp
+    * применяется к hyp и hyp
+    $hyp^2$
+  привязка $hyp^2$ к hyp-square
+(side-square (* side side))
+  (* side side)
+    side вычисляется как side
+    side вычисляется как side
+    * применяется к side и side
+    $side^2$
+  привязка $side^2$ к side-square
+(square-sub (- hyp-square side-square)))
+  (- hyp-square side-square)
+    - применяется к hyp-square и side-square
+    $hyp^2 - side^2$
+  привязка $hyp^2 - side^2$ к square-sub
+(sqrt square-sub)
+  sqrt применяется к square-sub
+  $\sqrt{hyp^2-side^2}$
+\end{lstlisting}
+
+\section*{Контрольные вопросы}
+
+\subsection*{1. Базис языка {\texttt{Lisp}}}
+
+Базис языка представлен:
+\begin{itemize}
+	\item структурами, атомами;
+	\item функциями:\\
+	{\texttt{atom, eq, cons, car, cdr,}}\\
+	{\texttt{cond, quote, lambda, eval, label}}.
+\end{itemize}
+
+\subsection*{2. Классификация функций языка {\texttt{Lisp}}}
+
+Функции в языке {\texttt{Lisp}}:
+\begin{itemize}
+	\item чистые (с фиксированным количеством аргументов) -- математические функции;
+	\item рекурсивные функции;
+	\item специальные функции -- формы (принимают произвольное количество аргументов или по разному обрабатывают аргументы);
+	\item псевдофункции (создающие <<эффект>> - отображающие на экране процесс обработки данных и т. п.);
+	\item функции с вариативными значениями, выбирающие одно значение;
+	\item функции высших порядков -- функционалы (используются для построения синтаксически управляемых программ).
+\end{itemize}
+
+\subsection*{3. Синтаксис элементов языка и их представление в памяти}
+
+\noindent{\texttt{Точечные пары ::= (<атом>, <атом>) |}}\\
+{\texttt{(<атом>, <точечная пара>) |}}\\
+{\texttt{(<точечная пара>, <атом>) |}}\\
+{\texttt{(<точечная пара>, <точечная пара>)}}\\
+
+\noindent{\texttt{Список ::= <пустой список> | <непустой список>)}}, где\\
+{\texttt{<пустой список> ::= () | Nil}},\\
+{\texttt{<непустой список> ::= (<первый элемент>, <хвост>) }},\\
+{\texttt{<первый элемент> ::= (S-выражение)}},\\
+{\texttt{<хвост> ::= <список>}}\\
+
+\noindent Список -- частный случай {\texttt{S-выражения}}.\\
+Синтаксически любая структура (точечная пара или список) заключается в {\texttt{()}}:\\
+{\texttt{(A . B)}} -- точечная пара\\
+{\texttt{(A)}} -- список из одного элемента\\
+Пустой список изображается как {\texttt{Nil}} или {\texttt{()}}\\
+Непустой список может быть изображён: {\texttt{(A. (B . (C ())))}} или {\texttt{(A B C)}}\\
+Элементы списка могут являться списками: {\texttt{((A) (B) (C))}}\\
+Любая непустая структура {\texttt{Lisp}} в памяти представлена списковой ячейкой, хранящей два указателя: на голову (первый элемент) и хвост (всё остальное).
+
+\subsection*{4. Функции {\texttt{car, cdr}}}
+
+Являются базовыми функциями доступа к данным. {\texttt{car}} принимает точечную пару или список в качестве аргумента и возвращает первый элемент или {\texttt{Nil}}, {\texttt{cdr}} -- возвращает все элементы, кроме первого или {\texttt{Nil}}.
+
+\subsection*{5. Функции {\texttt{list, cons}}}
+
+Являются функциями создания списков ({\texttt{cons}} -- базовая, {\texttt{list}} -- нет). {\texttt{cons}} создаёт списочную ячейку и устанавливает два указателя на аргументы. {\texttt{list}} принимает переменное число аргументов и возвращает список, элементами которого являются аргументы, переданные в функцию.
