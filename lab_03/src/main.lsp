@@ -13,7 +13,7 @@
   (let* ((a-square (* a a))
          (b-square (* b b))
          (square-sum (+ a-square b-square)))
-    (sqrt s)))
+    (sqrt square-sum)))
 
 (defun calc-par-vol (a b h)
   "Task 3"
