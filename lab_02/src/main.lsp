@@ -1,4 +1,4 @@
-(defvar slist '(1 2 3 4 5))
+(defvar *slist* '(1 2 3 4 5))
 
 (defun list-nth (l idx)
   (case idx
