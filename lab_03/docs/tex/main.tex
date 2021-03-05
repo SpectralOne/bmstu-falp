@@ -1,5 +1,3 @@
-\chapter*{Лабораторная работа №1}
-
 \section*{Задание 1}
 
 Составить диаграмму вычисления следующих выражений:
@@ -35,6 +33,7 @@
      T
 \end{lstlisting}
 
+\clearpage
 \begin{lstlisting}[style={scheme}]
 3. (equal (* 4 7) 21)
      (* 4 7)
@@ -63,6 +62,7 @@
      Nil
 \end{lstlisting}
 
+\clearpage
 \begin{lstlisting}[style={scheme}]
 5. (equal (- 7 3) (* 3 2))
      (- 7 3)
@@ -107,28 +107,30 @@
 \end{lstinputlisting}
 
 \begin{lstlisting}[style={scheme}]
-(a-square (* a a))
-  (* a a)
-    a вычисляется как a
-    a вычисляется как a
-    * применяется к a и a
-    $a^2$
-  привязка $a^2$ к a-square
-(b-square (* b b))
-  (* b b)
-    b вычисляется как b
-    b вычисляется как b
-    * применяется к b и b
-    $b^2$
-  привязка $b^2$ к b-square
-(square-sum (+ a-square b-square)))
-  (+ a-square b-square)
-    + применяется к a-square и b-square
-    $a^2 + b^2$
-  привязка $a^2 + b^2$ к square-sum
-(sqrt square-sum)
-  sqrt применяется к square-sum
-  $\sqrt{a^2+b^2}$
+(calc-triangle-hyp 3 4)
+	
+  (a-square (* 3 3))
+    (* 3 3)
+      3 вычисляется как 3
+      3 вычисляется как 3
+      * применяется к 3 и 3
+      9
+    привязка 9 к a-square
+  (b-square (* 4 4))
+    (* 4 4)
+      4 вычисляется как 4
+      4 вычисляется как 4
+      * применяется к 4 и 4
+      16
+    привязка 16 к b-square
+  (square-sum (+ a-square b-square)))
+    (+ a-square b-square)
+      + применяется к a-square и b-square
+      25
+    привязка 25 к square-sum
+  (sqrt square-sum)
+    sqrt применяется к square-sum
+    5
 \end{lstlisting}
 
 \section*{Задание 3}
@@ -144,12 +146,14 @@
 \end{lstinputlisting}
 
 \begin{lstlisting}[style={scheme}]
-(* a b h)
-  a вычисляется как a
-  b вычисляется как b
-  h вычисляется как h
-  * приминяется к a, b, h
-  $a\cdot b\cdot h$
+(calc-par-vol 1 2 3)
+	
+  (* 1 2 3)
+    1 вычисляется как 1
+    2 вычисляется как 2
+    3 вычисляется как 3
+    * приминяется к 1, 2, 3
+    6
 \end{lstlisting}
 
 \section*{Задание 4}
@@ -249,29 +253,32 @@
 	]{../src/main.lsp}
 \end{lstinputlisting}
 
+\clearpage
 \begin{lstlisting}[style={scheme}]
-(hyp-square (* hyp hyp))
-  (* hyp hyp)
-    hyp вычисляется как hyp
-    hyp вычисляется как hyp
-    * применяется к hyp и hyp
-    $hyp^2$
-  привязка $hyp^2$ к hyp-square
-(side-square (* side side))
-  (* side side)
-    side вычисляется как side
-    side вычисляется как side
-    * применяется к side и side
-    $side^2$
-  привязка $side^2$ к side-square
-(square-sub (- hyp-square side-square)))
-  (- hyp-square side-square)
-    - применяется к hyp-square и side-square
-    $hyp^2 - side^2$
-  привязка $hyp^2 - side^2$ к square-sub
-(sqrt square-sub)
-  sqrt применяется к square-sub
-  $\sqrt{hyp^2-side^2}$
+(find-triangle-side 5 4)
+	
+  (hyp-square (* 5 5))
+    (* 5 5)
+      5 вычисляется как 5
+      5 вычисляется как 5
+      * применяется к 5 и 5
+      25
+    привязка 25 к hyp-square
+  (side-square (* 4 4))
+    (* 4 4)
+      4 вычисляется как 4
+      4 вычисляется как 4
+      * применяется к 4 и 4
+      16
+    привязка 16 к side-square
+  (square-sub (- hyp-square side-square)))
+    (- hyp-square side-square)
+      - применяется к hyp-square и side-square
+      9
+    привязка 9 к square-sub
+  (sqrt square-sub)
+    sqrt применяется к square-sub
+    3
 \end{lstlisting}
 
 \section*{Контрольные вопросы}
@@ -298,27 +305,26 @@
 	\item функции высших порядков -- функционалы (используются для построения синтаксически управляемых программ).
 \end{itemize}
 
-\subsection*{3. Синтаксис элементов языка и их представление в памяти}
+\subsection*{3. Синтаксис элементов языка и их представление в памяти}
 
-\noindent{\texttt{Точечные пары ::= (<атом>, <атом>) |}}\\
-{\texttt{(<атом>, <точечная пара>) |}}\\
-{\texttt{(<точечная пара>, <атом>) |}}\\
-{\texttt{(<точечная пара>, <точечная пара>)}}\\
+\noindent{\texttt{Точечные пары ::= (<атом>, <атом>) |}}\\
+{\texttt{(<атом>, <точечная пара>) |}}\\
+{\texttt{(<точечная пара>, <атом>) |}}\\
+{\texttt{(<точечная пара>, <точечная пара>)}}\\
+\noindent{\texttt{Список ::= <пустой список> | <непустой список>)}}, где\\
+{\texttt{<пустой список> ::= () | Nil}},\\
+{\texttt{<непустой список> ::= (<первый элемент>, <хвост>) }},\\
+{\texttt{<первый элемент> ::= (S-выражение)}},\\
+{\texttt{<хвост> ::= <список>}}\\
+\noindent Список -- частный случай {\texttt{S-выражения}}.\\
+Синтаксически любая структура (точечная пара или список) заключается в {\texttt{()}}:\\
+{\texttt{(A . B)}} -- точечная пара\\
+{\texttt{(A)}} -- список из одного элемента\\
+Пустой список изображается как {\texttt{Nil}} или {\texttt{()}}\\
+Непустой список может быть изображён: {\texttt{(A. (B . (C ())))}} или {\texttt{(A B C)}}\\
+Элементы списка могут являться списками: {\texttt{((A) (B) (C))}}\\
 
-\noindent{\texttt{Список ::= <пустой список> | <непустой список>)}}, где\\
-{\texttt{<пустой список> ::= () | Nil}},\\
-{\texttt{<непустой список> ::= (<первый элемент>, <хвост>) }},\\
-{\texttt{<первый элемент> ::= (S-выражение)}},\\
-{\texttt{<хвост> ::= <список>}}\\
-
-\noindent Список -- частный случай {\texttt{S-выражения}}.\\
-Синтаксически любая структура (точечная пара или список) заключается в {\texttt{()}}:\\
-{\texttt{(A . B)}} -- точечная пара\\
-{\texttt{(A)}} -- список из одного элемента\\
-Пустой список изображается как {\texttt{Nil}} или {\texttt{()}}\\
-Непустой список может быть изображён: {\texttt{(A. (B . (C ())))}} или {\texttt{(A B C)}}\\
-Элементы списка могут являться списками: {\texttt{((A) (B) (C))}}\\
-Любая непустая структура {\texttt{Lisp}} в памяти представлена списковой ячейкой, хранящей два указателя: на голову (первый элемент) и хвост (всё остальное).
+Любая непустая структура {\texttt{Lisp}} в памяти представлена списковой ячейкой, хранящей два указателя: на голову (первый элемент) и хвост (всё остальное).
 
 \subsection*{4. Функции {\texttt{car, cdr}}}
 

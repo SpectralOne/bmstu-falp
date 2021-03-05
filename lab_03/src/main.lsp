@@ -1,80 +1,56 @@
-#(
-  "Task 1"
-  (equal 3 (abs -3))
-  (equal (+ 1 2) 3)
-  (equal (* 4 7) 21)
-  (equal (* 2 3) (+ 7 2))
-  (equal (- 7 3) (* 3 2))
-  (equal (abs (- 2 4)) 3)
-  )
+(defun make-first-even (num)
+    (if (evenp num) num (+ num 1)))
 
-(defun calc-triangle-hyp (a b)
-  "Task 2"
-  (let* ((a-square (* a a))
-         (b-square (* b b))
-         (square-sum (+ a-square b-square)))
-    (sqrt square-sum)))
+(defun make-abs-greater-num (num)
+    (if (> num 0) (+ num 1) (- num 1)))
 
-(defun calc-par-vol (a b h)
-  "Task 3"
-  (* a b h))
+(defun make-asc-pair (a b)
+    (if (> a b) (list a b) (list b a)))
 
-#(
-  "Task 4"
-  (list 'a 'b c)                  ; -> the variable C is unbound
-  (cons 'a (b c))                 ; -> the variable C is unbound
-  (cons 'a '(b c))                ; -> (a b c)
-  (caddr (1 2 3 4 5))             ; -> illegal function call
-  (cons 'a 'b 'c)                 ; -> invalid number of arguments: 3
-  (list 'a (b c))                 ; -> the variable C is unbound
-  (list a '(b c))                 ; -> the variable A is unbound
-  (list (+ 1 '(length '(1 2 3)))) ; -> the value (LENGTH '(1 2 3)) is not of type NUMBER
-  )
+(defun is-between (a b c)
+    (if (and (> a b) (< a c)) T Nil))
 
-(defun longer-than (a b)
-  "Task 5"
-  (let ((len-a (length a))
-        (len-b (length b)))
-    (> len-a len-b)))
+(and 'fee 'fie 'foe)            ; FOE
+(or 'fee 'fie 'foe)             ; FEE
+(and (equal 'abc 'abc) 'yes)    ; YES
+(or nil 'fie 'foe)              ; FIE
+(and nil 'fie 'foe)             ; NIL
+(or (equal 'abc 'abc) 'yes)     ; T
 
-#(
-  "Task 6"
-  (cons 3 (list 5 6))                           ; -> (3 5 6)
-  (list 3 'from 9 'gives (- 9 3))               ; -> (3 from 9 gives 6)
-  (+ (length '(1 foo 2 too)) (car '(21 22 23))) ; -> 25
-  (cdr '(cons is short for ans))                ; -> (is short for ans)
-  (car (list one two))                          ; -> variable ONE is unbound
-  (cons 3 '(list 5 6))                          ; -> (3 list 5 6)
-  (car (list 'one 'two))                        ; -> one
+(defun is-ge (a b)
+    (if (>= a b) T Nil))
 
-  (defun mystery (x)
-    (list (second x) (first x)))
+(defun pred1 (x)
+    (and (numberp x) (plusp x)))    ; Good
 
-  (mystery '(one two))       ; -> (two one)
-  (mystery 'free)            ; -> the value FREE is not of type LIST
-  (mystery (last 'one 'two)) ; -> the value ONE is not of type LIST when binding LIST
-  (mystery 'one 'two)        ; -> invalid number of arguments: 2
-  )
+(defun pred2 (x)
+    (and (plusp x) (numberp x)))    ; Error
 
-(defun f-to-c (temp)
-  "Task 7"
-  (float (* (- temp 32) (/ 5 9))))
+;; IF variant
+(defun is-between-if (a b c)
+    (if (and (> a b) (< a c)) T Nil))
+;; COND variant
+(defun is-between-cond (a b c)
+    (cond ((and (> a b) (< a c)) T)
+    (T Nil)))
+;; AND/OR variant
+(defun is-between-andor (a b c)
+    (and (> a b) (< a c)))
 
-#(
-  "Task 8"
-  (list 'cons T Nil)               ; -> (cons T Nil)
-  (eval (eval (list 'cons T Nil))) ; -> undefined function
-  (apply #'cons '(T Nil))          ; -> (T)
-  (list 'eval Nil)                 ; -> (eval Nil)
-  (eval (list 'cons T Nil))        ; -> (T)
-  (eval Nil)                       ; -> Nil
-  (eval (list 'eval Nil))          ; -> Nil
-  )
-
-(defun find-triangle-side (hyp side)
-  "Extra 1"
-  (let* ((hyp-square (* hyp hyp))
-         (side-square (* side side))
-         (square-sub (- hyp-square side-square)))
-    (sqrt square-sub)))
-
+;; COND variant
+(defun how-alike-cond (x y)
+    (cond ((or (= x y) (equal x y)) 'the_same)
+    ((and (oddp x) (oddp y)) 'both_odd)
+    ((and (evenp x) (evenp y)) 'both_even)
+    (T 'difference)))
+;; IF variant
+(defun how-alike-if (x y)
+    (if (if (= x y) (equal x y)) 'the_same (
+        if (if (oddp x) (oddp y)) 'both_odd (
+            if (if (evenp x) (evenp y)) 'both_even 'difference))))
+;; AND/OR variant
+(defun how-alike-andor (x y)
+    (or (and (or (= x y) (equal x y)) 'the_same)
+    (and (oddp x) (oddp y) 'both_odd)
+    (and (evenp x) (evenp y) 'both_even)
+    'difference))
