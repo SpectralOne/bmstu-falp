@@ -1,63 +1,280 @@
 \section*{Задание 1}
 
-Используя только функции {\texttt{car}} и {\texttt{cdr}}, написать выражения, возвращающие второй, третий, четвёртый элементы заданного списка:
+Составить диаграмму вычисления следующих выражений:
 
-\begin{lstinputlisting}[
-	caption={Задание 1},
-	label={lst:t1},
-	style={lsp},
-	linerange={3-7},
-	]{../src/main.lsp}
-\end{lstinputlisting}
+\begin{lstlisting}[style={scheme}]
+1. (equal 3 (abs -3))
+     3 %\as% 3
+     (abs -3)
+       -3 %\as% -3
+       abs %\at% -3
+       3
+     equal %\at% 3 и 3
+     T
+\end{lstlisting}
 
+\begin{lstlisting}[style={scheme}]
+2. (equal (+ 1 2) 3)
+     (+ 1 2)
+       1 %\as% 1
+       2 %\as% 2
+       + %\at% 1 и 2
+       3
+     3 %\as% 3
+     equal %\at% 3 и 3
+     T
+\end{lstlisting}
+
+\clearpage
+\begin{lstlisting}[style={scheme}]
+3. (equal (* 4 7) 21)
+     (* 4 7)
+       4 %\as% 4
+       7 %\as% 7
+       * %\at% 4 и 7
+       28
+     21 %\as% 21
+     equal %\at% 28 и 21
+     Nil
+\end{lstlisting}
+
+\begin{lstlisting}[style={scheme}]
+4. (equal (* 2 3) (+ 7 2))
+     (* 2 3)
+       2 %\as% 2
+       3 %\as% 3
+       * %\at% 2 и 3
+       6
+     (+ 7 2)
+       7 %\as% 7
+       2 %\as% 2
+       + %\at% 7 и 2
+       9
+     equal %\at% 6 и 9
+     Nil
+\end{lstlisting}
+
+\clearpage
+\begin{lstlisting}[style={scheme}]
+5. (equal (- 7 3) (* 3 2))
+     (- 7 3)
+       7 %\as% 7
+       3 %\as% 3
+       - %\at% 7 и 3
+       4
+     (* 3 2)
+       3 %\as% 3
+       2 %\as% 2
+       * %\at% 3 и 2
+       6
+     equal %\at% 4 и 6
+     Nil
+\end{lstlisting}
+
+\begin{lstlisting}[style={scheme}]
+6. (equal (abs (- 2 4)) 3)
+     (abs (- 2 4))
+       (- 2 4)
+         2 %\as% 2
+         4 %\as% 4
+         - %\at% 2 и 4
+         -2
+       abs %\at% -2
+       2
+     3 %\as% 3
+     equal %\at% 2 и 3
+     Nil
+\end{lstlisting}
+
+\clearpage
 \section*{Задание 2}
-
-Что будет в результате выполнения выражений?
 
 \begin{lstinputlisting}[
 	caption={Задание 2},
-	label={lst:t2},
+	label={lst:t4},
 	style={lsp},
-	linerange={11-14},
+	linerange={12-13},
 	]{../src/main.lsp}
 \end{lstinputlisting}
 
+Написать функцию, вычисляющую гипотенузу прямоугольного треугольника по заданным катетам 
+
+\begin{lstlisting}[style={scheme}]
+(calc-triangle-hyp 3 4)
+
+  (sqrt (+ (* 3 3) (* 4 4)))
+    (+ (* 3 3) (* 4 4))
+      (* 3 3)
+        3 %\as% 3
+        3 %\as% 3
+        * %\at% 3 и 3
+        9
+      (* 4 4)
+        4 %\as% 4
+        4 %\as% 4
+        * %\at% 4 и 4
+        16
+      + %\at% 9 и 16
+      25
+    sqrt %\at% 25
+    5
+  
+\end{lstlisting}
+
+\clearpage
 \section*{Задание 3}
 
-Напишите результат вычисления выражений:
+Написать функцию, вычисляющую объём параллелепипеда по 3-м его сторонам и составить диаграмму её вычисления.
 
 \begin{lstinputlisting}[
 	caption={Задание 3},
-	label={lst:t3},
+	label={lst:t4},
 	style={lsp},
-	linerange={16-31},
+	linerange={15-16},
 	]{../src/main.lsp}
 \end{lstinputlisting}
 
+\begin{lstlisting}[style={scheme}]
+(calc-par-vol 1 2 3)
+	
+  (* 1 2 3)
+    1 %\as% 1
+    2 %\as% 2
+    3 %\as% 3
+    * %\at% 1, 2, 3
+    6
+\end{lstlisting}
+
 \section*{Задание 4}
 
-Написать:
-\begin{itemize}
-	\item функцию {\texttt{(f ar1 ar2 ar3 ar4)}}, возвращающую список {\texttt{((ar1 ar2) (ar3 ar4))}};
-	\item функцию {\texttt{(f ar1 ar2)}}, возвращающую список {\texttt{((ar1) (ar2))}};
-	\item {\texttt{(f ar1)}}, возвращающую список {\texttt{(((ar1)))}}.
-\end{itemize}
-
-результаты представить в виде списочных ячеек.
+Каковы результаты вычисления следующих выражений?
 
 \begin{lstinputlisting}[
 	caption={Задание 4},
 	label={lst:t4},
 	style={lsp},
-	linerange={34-41},
+	linerange={2-9},
 	]{../src/main.lsp}
 \end{lstinputlisting}
 
-Представление полученных списков в виде списочных ячеек оформлено на тетрадном листе.
+\clearpage
+\section*{Задание 5}
+
+Написать функцию {\texttt{longer-than}} от двух списков-аргументов, которая возвращает {\texttt{T}}, если первый аргумент имеет большую длину.
+
+\begin{lstinputlisting}[
+	caption={Задание 5},
+	label={lst:t5},
+	style={lsp},
+	linerange={18-19},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{Задание 6}
+
+Каковы результаты вычисления следующих выражений?
+
+\begin{lstinputlisting}[
+	caption={Задание 6},
+	label={lst:t6},
+	style={lsp},
+	linerange={22-28},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{Задание 7}
+
+Дана функция 
+
+\begin{lstinputlisting}[
+	caption={mystery},
+	label={lst:func},
+	style={lsp},
+	linerange={31-32},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+Каковы результаты вычисления следующих выражений?
+
+\begin{lstinputlisting}[
+	caption={Задание 7},
+	label={lst:t7},
+	style={lsp},
+	linerange={35-38},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{Задание 8}
+
+Написать функцию, которая переводит температуру в системе Фаренгейта в температуру по Цельсию. $f = \cfrac{9}{5}\cdot c + 32$
+
+\begin{lstinputlisting}[
+	caption={Задание 8},
+	label={lst:t8},
+	style={lsp},
+	linerange={41-42},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\noindentКак бы назывался роман Р. Бредбери <<+451 по Фаренгейту>> в системе по Цельсию? -- <<232.78 по Цельсию>>
+
+\section*{Задание 9}
+
+Что получится при вычислении каждого из выражений?
+
+\begin{lstinputlisting}[
+	caption={Задание 9},
+	label={lst:t9},
+	style={lsp},
+	linerange={45-51},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{Дополнительное задание 1}
+
+Написать функцию, вычисляющую катет по заданной гипотенузе и другому катету прямоугольного треугольника и составить диаграмму её вычисления. 
+
+\begin{lstinputlisting}[
+	caption={Дополнительное задание 1},
+	label={lst:e1},
+	style={lsp},
+	linerange={54-55},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\begin{lstlisting}[style={scheme}]
+(calc-cathet 5 4)
+  (sqrt (- (* 5 5) (* 4 4)))
+    (- (* 5 5) (* 4 4))
+      (* 5 5)
+	    5 %\as% 5
+	    5 %\as% 5
+        * %\at% 5 и 5
+        25
+      (* 4 4)
+        4 %\as% 4
+        4 %\as% 4
+        * %\at% 4 и 4
+        16
+      - %\at% 25 и 16
+      9
+    sqrt %\at% 9
+    3
+\end{lstlisting}
 
 \section*{Контрольные вопросы}
 
-\subsection*{1. Классификация функций языка {\texttt{Lisp}}}
+\subsection*{1. Базис языка {\texttt{Lisp}}}
+
+Базис языка представлен:
+\begin{itemize}
+	\item структурами, атомами;
+	\item функциями:\\
+	{\texttt{atom, eq, cons, car, cdr,}}\\
+	{\texttt{cond, quote, lambda, eval, label}}.
+\end{itemize}
+
+\subsection*{2. Классификация функций языка {\texttt{Lisp}}}
 
 Функции в языке {\texttt{Lisp}}:
 \begin{itemize}
@@ -69,20 +286,14 @@
 	\item функции высших порядков -- функционалы (используются для построения синтаксически управляемых программ).
 \end{itemize}
 
-\subsection*{2. Базис языка {\texttt{Lisp}}}
+\subsection*{3. Способы создания функций}
 
-Базис языка представлен:
-\begin{itemize}
-	\item структурами, атомами;
-	\item функциями:\\
-	{\texttt{atom, eq, cons, car, cdr,}}\\
-	{\texttt{cond, quote, lambda, eval, label}}.
-\end{itemize}
+С помощью макро определения \texttt{defun} или с использованием Лямбда-нотации (функция без имени).
 
-\subsection*{3. Функции {\texttt{car, cdr}}}
+\subsection*{4. Функции {\texttt{car, cdr}}}
 
 Являются базовыми функциями доступа к данным. {\texttt{car}} принимает точечную пару или список в качестве аргумента и возвращает первый элемент или {\texttt{Nil}}, {\texttt{cdr}} -- возвращает все элементы, кроме первого или {\texttt{Nil}}.
 
-\subsection*{4. Функции {\texttt{list, cons}}}
+\subsection*{5. Функции {\texttt{list, cons}}}
 
 Являются функциями создания списков ({\texttt{cons}} -- базовая, {\texttt{list}} -- нет). {\texttt{cons}} создаёт списочную ячейку и устанавливает два указателя на аргументы. {\texttt{list}} принимает переменное число аргументов и возвращает список, элементами которого являются аргументы, переданные в функцию.

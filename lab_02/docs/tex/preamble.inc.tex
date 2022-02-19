@@ -65,6 +65,19 @@
 	showstringspaces=false
 }
 
+\lstdefinestyle{scheme}{
+	basicstyle=\ttfamily,
+	breaklines,
+	columns=fullflexible,
+	flexiblecolumns,
+	extendedchars=\true,
+	showstringspaces=false,
+	keepspaces=true,
+	mathescape=true,
+	escapechar=\%,
+	texcl=true
+}
+
 \usepackage{pgfplots}
 \usetikzlibrary{datavisualization}
 \usetikzlibrary{datavisualization.formats.functions}
@@ -102,3 +115,5 @@
 \usepackage{csvsimple}
 
 \newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\as}{вычисляется как}
+\newcommand{\at}{применяется к}
