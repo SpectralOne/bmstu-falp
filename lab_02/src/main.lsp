@@ -1,11 +1,11 @@
 #(
-  (list 'a c)  ; -> unbound variable : 'c
-  (cons 'a (b c)) ; -> unbound variable : '(b c)
-  (cons 'a '(b c)) ; -> (A B C)
-  (caddy (1 2 3 4 5)) ; -> illigela funtion call
-  (cons 'a 'b' c) ; -> invalid number of arguments 3
-  (list 'a (b c)) ; -> unbound variable
-  (list a '(b c)) ; -> unbound variable
+  (list 'a c)                     ; unbound variable : 'c
+  (cons 'a (b c))                 ; unbound variable : '(b c)
+  (cons 'a '(b c))                ; (A B C)
+  (caddy (1 2 3 4 5))             ; illegal funtion call
+  (cons 'a 'b' c)                 ; invalid number of arguments 3
+  (list 'a (b c))                 ; unbound variable : 'b
+  (list a '(b c))                 ; unbound variable : 'a
   (list (+ 1 '(length '(1 2 3)))) ; -> type error
 )
 
@@ -26,7 +26,7 @@
   (car (list one two))                            ; VARIABLE ONE IS UNBOUND
   (cons 3 '(list 5 6))                            ; (3 LIST 5 6)
   (car (list 'one 'two))                          ; ONE
-)
+) 
 
 (defun mystery (x)
   (list (second x) (first x)))
