@@ -1,0 +1,47 @@
+(defmacro ->> (initial-form &rest forms)
+  (reduce #'(lambda (acc next)
+              (if (listp next)
+                  (append next (list acc))
+                  (list next acc)))
+          forms :initial-value initial-form))
+
+(defconstant +auto-win-scores+ '(7 11))
+(defconstant +rethrow-combinations+ '((1 1) (6 6)))
+
+(defun throw-dices ()
+  (let ((first-throw (1+ (random 6)))
+        (second-throw (1+ (random 6))))
+    (list first-throw second-throw)))
+
+(defun init-n-throws (n acc)
+  (if (zerop n)
+      acc
+      (init-n-throws (decf n) (cons (throw-dices) acc))))
+
+(defun score-results (player-id dices sum-acc)
+  (let* ((dices-sum (apply #'+ dices))
+         (result-sum (+ sum-acc dices-sum)))
+    (format T "Player ~a throws ~a: ~a -> ~a ~%" player-id dices sum-acc result-sum)
+    (cond ((member dices +rethrow-combinations+ :test #'equal)
+           (score-results player-id (throw-dices) result-sum))
+          ((member dices-sum +auto-win-scores+)
+           (cons player-id -1))
+          (T (cons player-id result-sum)))))
+
+(defun pick-a-winner (a b)
+  (let ((sum-a (cdr a))
+        (sum-b (cdr b)))
+    (cond ((= sum-a -1) a)
+          ((= sum-b -1) b)
+          ((>= sum-a sum-b) a)
+          (T b))))
+
+(defun play (players)
+  (let ((player-id 0))
+    (->> (init-n-throws players nil)
+         (mapcar #'(lambda (init-dices)
+                     (score-results (incf player-id) init-dices 0)))
+         (reduce #'pick-a-winner)
+         car
+         (format T "Winner: ~a")
+         not)))
