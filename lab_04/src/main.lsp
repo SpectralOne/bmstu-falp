@@ -27,7 +27,7 @@
   (int-last-recursive-2 lst nil))
 
 (defun last-reduce (lst)
-  (reduce #’(lambda (acc e) e) lst))
+  (reduce #'(lambda (acc e) e) lst))
 
 (defun no-last-int (lst acc)
   (if (cdr lst)
