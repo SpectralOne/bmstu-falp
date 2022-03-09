@@ -1,0 +1,53 @@
+(defun palindromep (lst)
+  (equal lst (reverse lst)))
+
+(defun set-equal (lst1 lst2)
+  (and (subsetp lst2 lst1) (subsetp lst1 lst2)))
+
+(defun ->capital (country country-capital)
+  (let ((pair (assoc country country-capital)))
+    (and pair (cdr pair))))
+
+(defun ->country (capital country-capital)
+  (let ((pair (rassoc capital country-capital)))
+    (and pair (car pair))))
+
+(defun swap-first-last! (lst)
+  (let ((el (car lst))
+        (last (last lst)))
+    (setf (car lst) (car last))
+    (setf (car last) el)
+    lst))
+
+(defun swap-first-last (lst)
+  (let ((el (car lst))
+        (last (car (last lst))))
+    (reverse (cons el (cdr (reverse (cons last (cdr lst))))))))
+
+(defun swap-two! (n1 n2 lst)
+  (let ((len (length lst)))
+    (and (< n1 len) (< n2 len)
+         (let ((el1 (nth n1 lst))
+               (el2 (nth n2 lst)))
+           (setf (nth n1 lst) el2)
+           (setf (nth n2 lst) el1)
+           lst))))
+
+(defun swap-two (n1 n2 lst)
+  (let ((len (length lst))
+        (lst-copy (copy-list lst)))
+    (and (< n1 len) (< n2 len)
+         (let ((el1 (nth n1 lst))
+               (el2 (nth n2 lst)))
+           (setf (nth n1 lst-copy) el2)
+           (setf (nth n2 lst-copy) el1)
+           lst-copy))))
+
+(defun swap-to-left (lst)
+  (let ((tail (cdr lst))
+        (head (car lst)))
+    (reverse (cons head (reverse tail)))))
+
+(defun swap-to-right (lst)
+  (let ((last (car (last lst))))
+    (reverse (cdr (reverse (cons last lst))))))
