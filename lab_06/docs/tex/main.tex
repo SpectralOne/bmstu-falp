@@ -1,0 +1,86 @@
+\section*{1. Напишите функцию, которая уменьшает на 10 все числа из списка-аргумента этой функции}
+
+\begin{lstinputlisting}[
+	caption={Задание 1},
+	label={lst:t1},
+	style={lsp},
+	linerange={1-2},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{2. Напишите функцию, которая умножает на заданное число-аргумент все числа из заданного списка-аргумента, когда все элементы числа и любые объекты}
+
+\begin{lstinputlisting}[
+	caption={Задание 2},
+	label={lst:t2},
+	style={lsp},
+	linerange={4-12},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{3. Написать функцию, которая по своему списку-аргументу \texttt{lst} определяет является ли он палиндромом (то есть равны ли \texttt{lst} и \texttt{(reverse lst)})}
+
+
+\begin{lstinputlisting}[
+	caption={Задание 3},
+	label={lst:t3},
+	style={lsp},
+	linerange={1-2},
+	]{../../lab\_05/src/main.lsp}
+\end{lstinputlisting}
+
+\section*{4. Написать предикат \texttt{set-equal}, который возвращает \texttt{T}, если два его множества аргумента содержат одни и те же элементы, порядок которых не имеет значения}
+
+\begin{lstinputlisting}[
+	caption={Задание 4},
+	label={lst:t4},
+	style={lsp},
+	linerange={4-5},
+	]{../../lab\_05/src/main.lsp}
+\end{lstinputlisting}
+
+\section*{5. Написать функцию которая получает как аргумент список чисел, а возвращает список квадратов этих чисел в том же порядке}
+
+\begin{lstinputlisting}[
+	caption={Задание 5},
+	label={lst:t5},
+	style={lsp},
+	linerange={14-15},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{6. Напишите функцию, \texttt{select-between}, которая из списка-аргумента, содержащего только числа, выбирает только те, которые расположены между двумя указанными границами аргументами и возвращает их в виде списка (упорядоченного по возрастанию списка чисел)}
+
+\begin{lstinputlisting}[
+	caption={Задание 6},
+	label={lst:t6},
+	style={lsp},
+	linerange={17-21},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{7. Написать функцию, вычисляющую декартово произведение двух своих списков	аргументов}
+
+\begin{lstinputlisting}[
+	caption={Задание 7},
+	label={lst:t7},
+	style={lsp},
+	linerange={23-28},
+	]{../src/main.lsp}
+\end{lstinputlisting}
+
+\section*{8. Почему так реализовано \texttt{reduce}, в чем причина?}
+
+\texttt{(reduce \#'+ ()) -> 0}
+
+Поведение в данном примере обусловлено работой функции \texttt{+}. Эта функция --- функционал, который при 0 количестве аргументов возвращает значение 0. Если подать на вход \texttt{reduce} функцию, которая не может обработать 0 аргументов (например, математическая функция \texttt{cons}), то вызов \texttt{reduce} с пустым списком в качестве второго аргумента вернет ошибку (\texttt{invalid number of arguments: 0}).
+
+\section*{9. Написать функцию, которая вычисляет сумму длин всех элементов вложенного списка списков}
+
+\begin{lstinputlisting}[
+	caption={Задание 9},
+	label={lst:t9},
+	style={lsp},
+	linerange={30-33},
+	]{../src/main.lsp}
+\end{lstinputlisting}
