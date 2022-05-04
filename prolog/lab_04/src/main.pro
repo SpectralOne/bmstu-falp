@@ -4,8 +4,8 @@ domains
   man = man(sex, name)
 
 predicates
-  parent(man, man)
-  grandparent(man, sex, name)
+  nondeterm parent(man, man)
+  nondeterm grandparent(man, sex, name)
 
 clauses
   grandparent(man(Sex, GrandPName), PSex, Name) :-
