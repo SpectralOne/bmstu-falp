@@ -1,0 +1,158 @@
+\begin{thebibliography}{10}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{(#1)}\else\fi
+\ifx\undefined\BibEmph\def\BibEmph#1{\emph{#1}}\else\fi
+
+\bibitem{microservice}
+\selectlanguageifdefined{russian}
+Что такое микросервисная архитектура:
+  простое объяснение | MCS Mail.ru [Электронный
+  ресурс].
+\newblock Режим доступа:
+  \url{https://mcs.mail.ru/blog/prostym-jazykom-o-mikroservisnoj-arhitekture}
+  (дата обращения: \today).
+
+\bibitem{serde}
+\selectlanguageifdefined{russian}
+Serialization in Java - Java Serialization | Digital Ocean
+  [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://www.digitalocean.com/community/tutorials/serialization-in-java}
+  (дата обращения: \today).
+
+\bibitem{arrival}
+\selectlanguageifdefined{russian}
+Arrival | Zero-emission Solutions [Электронный ресурс].
+\newblock Режим доступа: \url{https://arrival.com/world/en}
+  (дата обращения: \today).
+
+\bibitem{DTO}
+\selectlanguageifdefined{russian}
+Pros and Cons of Data Transfer Objects | Microsoft Docs [Электронный
+  ресурс].
+\newblock Режим доступа:
+  \url{https://docs.microsoft.com/en-us/archive/msdn-magazine/2009/august/pros-and-cons-of-data-transfer-objects}
+  (дата обращения: \today).
+
+\bibitem{clojure}
+\selectlanguageifdefined{russian}
+Clojure [Электронный ресурс].
+\newblock Режим доступа: \url{https://clojure.org/} (дата
+  обращения: \today).
+
+\bibitem{lisp}
+\selectlanguageifdefined{russian}
+Common Lisp [Электронный ресурс].
+\newblock Режим доступа: \url{https://lisp-lang.org/} (дата
+  обращения: \today).
+
+\bibitem{jvm}
+\selectlanguageifdefined{russian}
+What is the JVM? Introducing the Java Virtual Machine | InfoWorld
+  [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://www.infoworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html}
+  (дата обращения: \today).
+
+\bibitem{kotlin}
+\selectlanguageifdefined{russian}
+Kotlin Programming Language [Электронный ресурс].
+\newblock Режим доступа: \url{https://kotlinlang.org/} (дата
+  обращения: \today).
+
+\bibitem{jackson}
+\selectlanguageifdefined{russian}
+FasterXML/jackson [Электронный ресурс].
+\newblock Режим доступа: \url{https://github.com/FasterXML/jackson}
+  (дата обращения: \today).
+
+\bibitem{JSON}
+\selectlanguageifdefined{russian}
+JSON | MDN [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON}
+  (дата обращения: \today).
+
+\bibitem{subd}
+\selectlanguageifdefined{russian}
+Что такое СУБД - RU-CENTER [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://www.nic.ru/help/chto-takoe-subd_8580.html} (дата
+  обращения: \today).
+
+\bibitem{datomic}
+\selectlanguageifdefined{russian}
+Overview | Datomic [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://docs.datomic.com/on-prem/overview/overview.html} (дата
+  обращения: \today).
+
+\bibitem{nosql}
+\selectlanguageifdefined{russian}
+Что такое NoSQL? | Amazon AWS [Электронный ресурс].
+\newblock Режим доступа: \url{https://aws.amazon.com/ru/nosql/}
+  (дата обращения: \today).
+
+\bibitem{datalog}
+\selectlanguageifdefined{russian}
+Datalog: Deductive Database Programming [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://docs.racket-lang.org/datalog/} (дата обращения:
+  \today).
+
+\bibitem{database}
+\selectlanguageifdefined{russian}
+Что такое база данных | Oracle Россия и СНГ
+  [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://www.oracle.com/ru/database/what-is-database/} (дата
+  обращения: \today).
+
+\bibitem{postgresql}
+\selectlanguageifdefined{russian}
+PostgreSQL: Документация. [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://postgrespro.ru/docs/postgresql/} (дата обращения:
+  \today).
+
+\bibitem{acid}
+\selectlanguageifdefined{russian}
+Транзакции, ACID, CAP | GeekBrains [Электронный
+  ресурс].
+\newblock Режим доступа:
+  \url{https://gb.ru/posts/acid_cap_transactions} (дата обращения:
+  \today).
+
+\bibitem{datomic-facts}
+\selectlanguageifdefined{russian}
+Datomic Queries and Rules | Datomic [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://docs.datomic.com/on-prem/query/query.html} (дата
+  обращения: \today).
+
+\bibitem{hash-map}
+\selectlanguageifdefined{russian}
+HashMap Under the Hood | Baeldung [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://www.baeldung.com/java-hashmap-advanced} (дата
+  обращения: \today).
+
+\bibitem{threading-macro}
+\selectlanguageifdefined{russian}
+Clojure - Threading Macros [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://clojure.org/guides/threading_macros} (дата
+  обращения: \today).
+
+\bibitem{destructuring}
+\selectlanguageifdefined{russian}
+Clojure - destructuring [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://clojure.org/guides/destructuring} (дата обращения:
+  \today).
+
+\end{thebibliography}
